@@ -1,0 +1,7 @@
+app/logs/
+assets/uploads/
+assets/uploads/qrcode12.png
+*.jar
+files
+app/config/database.php
+uploads/
