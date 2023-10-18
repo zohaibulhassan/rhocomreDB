@@ -236,7 +236,7 @@ class Db_model extends CI_Model
         SELECT
         sma_brands.name AS brandname,
         FORMAT(ROUND(SUM(sma_sale_items.quantity * sma_products.unit_weight)),2) AS Total_Sales_In_Liters,
-        FORMAT(ROUND(SUM(sma_products.carton_size)),2) AS Carton_Size,
+        FORMAT(ROUND(SUM((sma_sale_items.quantity / sma_products.carton_size))),2) AS Carton_Size,
         FORMAT(ROUND(SUM((IF(sma_companies.sales_type = 'consignment', sma_sale_items.unit_price,
                 IF(sma_companies.sales_type = 'crossdock', sma_sale_items.crossdock,
                     IF(sma_companies.sales_type = 'dropship', sma_sale_items.dropship, sma_sale_items.dropship))) * sma_sale_items.quantity + (sma_sale_items.item_tax + sma_sale_items.further_tax + sma_sale_items.fed_tax)))),2) AS value_excl_tax

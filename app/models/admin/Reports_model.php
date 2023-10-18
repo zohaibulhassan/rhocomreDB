@@ -4088,7 +4088,7 @@ class Reports_model extends CI_Model
                         sma_sale_return_items_tb.product_id = sma_products.id
                 ) AS sale_return_qty,
                 (
-                    SELECT
+                        SELECT
                         COALESCE(SUM(sma_sales_order_complete_items.quantity), 0)
                     FROM sma_sales_order_complete_items
                     WHERE  
